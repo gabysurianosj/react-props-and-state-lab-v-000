@@ -14,12 +14,12 @@ class App extends React.Component {
       }
     }
   }
-  
+
   onChangeType = (val) => {
     // changes type using filter class
     this.setState({ filters: {type: val }});
   }
-  
+
   onFindPetsClick = () => {
     let animal = this.state.filters.type;
     let results = "";
@@ -30,7 +30,7 @@ class App extends React.Component {
     else {
       results = `/api/pets?type=${animal}`;
     }
-    
+
     fetch(results)
       .then(response => response.json())
       .then(data => this.setState({ pets: data }))
@@ -43,7 +43,7 @@ class App extends React.Component {
     // updates pet array
     this.setState({ pets: petsChange });
   }
-  
+
   render() {
     return (
       <div className="ui container">
